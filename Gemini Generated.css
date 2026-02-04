@@ -1,0 +1,149 @@
+    :root {
+    --primary: #07073a;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --accent: #f43f5e;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: yellowgreen;
+    color: var(--light);
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR FIXED --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%; /* Reduced padding so buttons don't get pushed off */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.7); /* Dark semi-transparent background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo { font-size: 1.5rem; letter-spacing: 2px; flex-shrink: 0; }
+.logo b { color: var(--accent); }
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 8px; /* Fixed small gap between buttons */
+    flex-wrap: wrap; /* This allows "Contact" to wrap if screen is too small */
+    justify-content: flex-end;
+}
+
+.nav-links li { margin: 0; } /* Removed the 20px margin that caused the gaps */
+
+.nav-links a { 
+    text-decoration: none; 
+    color: white; 
+    background-color: var(--primary); 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    font-size: 0.85rem; 
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-links a:hover { 
+    background-color: var(--accent); 
+    transform: translateY(-2px); 
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(15,23,42,0.9), rgba(99,102,241,0.3)), 
+                url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 1rem; }
+.hero-content span { color: var(--accent); }
+.hero-content p { font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; opacity: 0.8; }
+
+.btn-primary {
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-primary:hover { background: var(--accent); transform: translateY(-3px); }
+
+/* --- PRODUCT GRID --- */
+.products { padding: 5rem 5%; }
+.section-title { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: var(--glass);
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
+}
+
+.product-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.15); }
+
+.product-img {
+    height: 200px;
+    border-radius: 15px;
+    background-color: #334155;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+}
+
+.product-info h3 { margin-bottom: 10px; font-size: 1.1rem; }
+.product-info p { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
+
+.add-to-cart {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: var(--dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover { background: var(--primary); color: white; }
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 480px) {
+    .navbar { padding: 1rem 3%; }
+    .nav-links a { padding: 6px 10px; font-size: 0.75rem; }
+                 }
+             
